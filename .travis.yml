@@ -1,0 +1,27 @@
+language: ruby
+dist: trusty
+sudo: required
+jdk:
+- openjdk8
+rvm:
+- 2.4.1
+
+env:
+  global:
+
+# install dependencies and prepare build structure
+before_install:
+
+install:
+
+script:
+  - gem build noltarium-documentation-theme.gemspec
+# create a branch with generated static jekyll files
+after_success:
+
+# execute selenium integration tests
+after_deploy:
+
+notifications:
+
+jobs:

@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+  {% include site/head.html %}
+
+  <body>
+
+    {% include site/header.html %}
+
+    <div id="content" class="container-fluid">
+      {{ content }}
+    </div>
+    {% include site/footer.html %}
+<script>
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });
+
+    $( document ).ready(function() {
+      var allCodeBlocksElements = $( "code" );
+
+      allCodeBlocksElements.each(function(i) {
+       	// add different id for each code block
+
+      	// target
+        var currentId = "codeblock" + (i + 1);
+        $(this).attr('id', currentId);
+
+        //trigger
+        var clipButton = '<button class="btn" data-clipboard-target="#' + currentId + '"><img src="https://clipboardjs.com/assets/images/clippy.svg" width="13" alt="Copy to clipboard"></button>';
+           $(this).after(clipButton);
+        });
+
+        new ClipboardJS('.btn');
+    });
+
+</script>
+
+{% for script in page.scripts %}
+
+{% include {{script}} %}
+
+{% endfor %}
+ </body>

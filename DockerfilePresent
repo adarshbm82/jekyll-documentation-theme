@@ -1,0 +1,4 @@
+FROM nginx:alpine
+
+# copy the genrated jekyll html files from the build container to the presentation nginx
+COPY --from=nolte/jekyll-page /tmp/jekyll_generated /usr/share/nginx/html

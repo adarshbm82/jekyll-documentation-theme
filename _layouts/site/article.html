@@ -1,0 +1,31 @@
+---
+layout: site/site-breadcrumb
+---
+<div class="row">
+  <div class="col-sm-2" id="site_navigation">
+    <div class="wrapper">
+    <nav id="sidebar">
+         <!-- Sidebar Header -->
+         <div class="sidebar-header">
+             <h3>{{ page.title }}</h3>
+         </div>
+    <ul id="toc" class="list-unstyled components">
+      {{ content | toc_only }}
+    </ul>
+
+    <!-- Sidebar Links -->
+
+  </nav>
+</div>
+  </div>
+  <div class="col-sm-10" id="content">
+    {{content}}
+  </div>
+</div>
+<script>
+    $( document ).ready(function() {
+
+      //  console.log( "document loaded 2" );
+
+    });
+</script>
